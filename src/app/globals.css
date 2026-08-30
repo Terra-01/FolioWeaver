@@ -1,0 +1,423 @@
+/* src/app/globals.css */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@import "tailwindcss";
+
+/*
+  Tailwind v4 no longer picks up tailwind.config.ts automatically, so without
+  this directive the @tailwindcss/typography plugin never loaded and every
+  `prose` class — including the one wrapping the rendered About markdown —
+  resolved to nothing. The config also maps the prose CSS variables onto this
+  file's theme tokens, so loading it is what keeps the About section on-theme.
+*/
+@config "../../tailwind.config.ts";
+
+/* 
+  =============================================
+  === CUSTOM KEYCAPS INSPIRED THEME LIBRARY ===
+  =============================================
+  The entire theme system is defined here. The default theme is "Dark Slate".
+  Each additional theme is a self-contained block.
+*/
+
+
+/* -- DEFAULT THEME: "Dark Slate" -- */
+:root {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+  --color-accent-primary: #2dd4bf;
+  --color-accent-solid: #14b8a6;
+  --color-accent-solid-hover: #0d9488;
+  --color-border-primary: #334155;
+  --color-error: #f87171;
+  --color-disabled-bg: #475569;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Dracula" -- */
+[data-theme="dracula"] {
+  --color-bg-primary: #282a36;
+  --color-bg-secondary: #383a59;
+  --color-bg-tertiary: #44475a;
+  --color-text-primary: #f8f8f2;
+  --color-text-secondary: #bd93f9;
+  --color-text-muted: #6272a4;
+  --color-accent-primary: #ff79c6;
+  --color-accent-solid: #50fa7b;
+  --color-accent-solid-hover: #8be9fd;
+  --color-border-primary: #44475a;
+  --color-error: #ff5555;
+  --color-disabled-bg: #44475a;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Cinder" -- */
+[data-theme="cinder"] {
+  --color-bg-primary: #1c1e20;
+  --color-bg-secondary: #2c2e30;
+  --color-bg-tertiary: #3c3e40;
+  --color-text-primary: #e5e5e5;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #6b6b6b;
+  --color-accent-primary: #ff8a00;
+  --color-accent-solid: #e07b00;
+  --color-accent-solid-hover: #c76c00;
+  --color-border-primary: #3c3e40;
+  --color-error: #e53e3e;
+  --color-disabled-bg: #3c3e40;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Cocogoat" (Light Theme) -- */
+[data-theme="cocogoat"] {
+  --color-bg-primary: #f2f2f2;
+  --color-bg-secondary: #e8e6e3;
+  --color-bg-tertiary: #c9c1b1;
+  --color-text-primary: #4a90e2;
+  --color-text-secondary: #595959;
+  --color-text-muted: #a6a6a6;
+  --color-accent-primary: #a03c44;
+  --color-accent-solid: #50e3c2;
+  --color-accent-solid-hover: #48c9b0;
+  --color-border-primary: #e6e6e6;
+  --color-error: #d0021b;
+  --color-disabled-bg: #e6e6e6;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Dandy R1" (Light Theme) -- */
+[data-theme="dandy-r1"] {
+  --color-bg-primary: #f3e9d2;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #c8d5b9;
+  --color-text-primary: #cead25;
+  --color-text-secondary: #6d7a7c;
+  --color-text-muted: #a4b494;
+  --color-accent-primary: #81a684;
+  --color-accent-solid: #6a994e;
+  --color-accent-solid-hover: #588140;
+  --color-border-primary: #e6e6e6;
+  --color-error: #d72a2a;
+  --color-disabled-bg: #e6e6e6;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Dolch" -- */
+[data-theme="dolch"] {
+  --color-bg-primary: #3f4040;
+  --color-bg-secondary: #4a4a4a;
+  --color-bg-tertiary: #404141;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #8c8c8c;
+  --color-accent-primary: #32968b;
+  --color-accent-solid: #50e3c2;
+  --color-accent-solid-hover: #48c9b0;
+  --color-border-primary: #5a5a5a;
+  --color-error: #e53e3e;
+  --color-disabled-bg: #5a5a5a;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Evil Dolch" -- */
+[data-theme="evil-dolch"] {
+  --color-bg-primary: #2d2d2d;
+  --color-bg-secondary: #3c3c3c;
+  --color-bg-tertiary: #4a4a4a;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #8c8c8c;
+  --color-accent-primary: #ff4136;
+  --color-accent-solid: #ff851b;
+  --color-accent-solid-hover: #e07b00;
+  --color-border-primary: #4a4a4a;
+  --color-error: #ff4136;
+  --color-disabled-bg: #4a4a4a;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Kaiju" -- */
+[data-theme="kaiju"] {
+  --color-bg-primary: #2a2a2a;
+  --color-bg-secondary: #3a3a3a;
+  --color-bg-tertiary: #4a4a4a;
+  --color-text-primary: #457c6b;
+  --color-text-secondary: #e3ddcf;
+  --color-text-muted: #8c8c8c;
+  --color-accent-primary: #fd5131;
+  --color-accent-solid: #ffcc00;
+  --color-accent-solid-hover: #e6b800;
+  --color-border-primary: #4a4a4a;
+  --color-error: #ffcc00;
+  --color-disabled-bg: #4a4a4a;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Lavender" -- */
+[data-theme="lavender"] {
+  --color-bg-primary: #f5f3ff;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #ede9fe;
+  --color-text-primary: #27272a;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #a1a1aa;
+  --color-accent-primary: #7c3aed;
+  --color-accent-solid: #8b5cf6;
+  --color-accent-solid-hover: #7c3aed;
+  --color-border-primary: #d4d4d8;
+  --color-error: #ef4444;
+  --color-disabled-bg: #e4e4e7;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Metropolis" -- */
+[data-theme="metropolis"] {
+  --color-bg-primary: #283139;
+  --color-bg-secondary: #4d5c64;
+  --color-bg-tertiary: #718096;
+  --color-text-primary: #d14f5b;
+  --color-text-secondary: #e2e8f0;
+  --color-text-muted: #a0aec0;
+  --color-accent-primary: #4fd1c5;
+  --color-accent-solid: #38b2ac;
+  --color-accent-solid-hover: #319795;
+  --color-border-primary: #718096;
+  --color-error: #e53e3e;
+  --color-disabled-bg: #718096;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Miami Dusk" -- */
+[data-theme="miami-dusk"] {
+  --color-bg-primary: #f5f2ef;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #e8e6e3;
+  --color-text-primary: #ff00a0;
+  --color-text-secondary: #0095a8;
+  --color-text-muted: #a1a1aa;
+  --color-accent-primary: #46aaab;
+  --color-accent-solid: #ff00a0;
+  --color-accent-solid-hover: #e60090;
+  --color-border-primary: #e8e6e3;
+  --color-error: #ef4444;
+  --color-disabled-bg: #e8e6e3;
+  --color-shadow: #ff00a0;
+}
+
+/* -- THEME: "Miami Nights" -- */
+[data-theme="miami-nights"] {
+  --color-bg-primary: #1a1b26;
+  --color-bg-secondary: #2d2e37;
+  --color-bg-tertiary: #414868;
+  --color-text-primary: #bc4369;
+  --color-text-secondary: #a9b1d6;
+  --color-text-muted: #565f89;
+  --color-accent-primary: #00f5d4;
+  --color-accent-solid: #ff00a0;
+  --color-accent-solid-hover: #ff40b7;
+  --color-border-primary: #414868;
+  --color-error: #f7768e;
+  --color-disabled-bg: #414868;
+  --color-shadow: #dbc822;
+}
+
+/* -- THEME: "Mictlán" -- */
+[data-theme="mictlan"] {
+  --color-bg-primary: #040303;
+  --color-bg-secondary: #292628;
+  --color-bg-tertiary: #3e3e3e;
+  --color-text-primary: #e62c81;
+  --color-text-secondary: #04acb5;
+  --color-text-muted: #ee7426;
+  --color-accent-primary: #e2aa1e;
+  --color-accent-solid: #ff8a65;
+  --color-accent-solid-hover: #ff7043;
+  --color-border-primary: #3e3e3e;
+  --color-error: #ef9a9a;
+  --color-disabled-bg: #3e3e3e;
+  --color-shadow: #4dd0e1;
+}
+
+/* -- THEME: "Olive" -- */
+[data-theme="olive"] {
+  --color-bg-primary: #3f4738;
+  --color-bg-secondary: #4d5645;
+  --color-bg-tertiary: #616e55;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #c5c5c5;
+  --color-text-muted: #a0a0a0;
+  --color-accent-primary: #ffcc80;
+  --color-accent-solid: #ffb74d;
+  --color-accent-solid-hover: #ffa726;
+  --color-border-primary: #616e55;
+  --color-error: #ef9a9a;
+  --color-disabled-bg: #616e55;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Perestroika" -- */
+[data-theme="perestroika"] {
+  --color-bg-primary: #59181e;
+  --color-bg-secondary: #7d4b4b;
+  --color-bg-tertiary: #59181e;
+  --color-text-primary: #e9e0d3;
+  --color-text-secondary: #c9c1b1;
+  --color-text-muted: #a8a091;
+  --color-accent-primary: #e9e0d3;
+  --color-accent-solid: #c22525;
+  --color-accent-solid-hover: #b02121;
+  --color-border-primary: #3c3c3c;
+  --color-error: #d72a2a;
+  --color-disabled-bg: #3c3c3c;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Phantom" -- */
+[data-theme="phantom"] {
+  --color-bg-primary: #1a1b26;
+  --color-bg-secondary: #2a2c41;
+  --color-bg-tertiary: #414868;
+  --color-text-primary: #f9df9d;
+  --color-text-secondary: #a9b1d6;
+  --color-text-muted: #7e829e;
+  --color-accent-primary: #bb9af7;
+  --color-accent-solid: #7aa2f7;
+  --color-accent-solid-hover: #5a87e0;
+  --color-border-primary: #414868;
+  --color-error: #f7768e;
+  --color-disabled-bg: #414868;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Prussian Blue" -- */
+[data-theme="prussian-blue"] {
+  --color-bg-primary: #003153;
+  --color-bg-secondary: #002a4a;
+  --color-bg-tertiary: #00213b;
+  --color-text-primary: #f0f8ff;
+  --color-text-secondary: #b0c4de;
+  --color-text-muted: #87ceeb;
+  --color-accent-primary: #d8d1c1;
+  --color-accent-solid: #ffcc00;
+  --color-accent-solid-hover: #e6b800;
+  --color-border-primary: #00213b;
+  --color-error: #ff6347;
+  --color-disabled-bg: #00213b;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Slasher" -- */
+[data-theme="slasher"] {
+  --color-bg-primary: #212121;
+  --color-bg-secondary: #313131;
+  --color-bg-tertiary: #414141;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #e0e0e0;
+  --color-text-muted: #bdbdbd;
+  --color-accent-primary: #e53935;
+  --color-accent-solid: #d32f2f;
+  --color-accent-solid-hover: #c62828;
+  --color-border-primary: #414141;
+  --color-error: #e53935;
+  --color-disabled-bg: #414141;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Solarized Dark" -- */
+[data-theme="solarized-dark"] {
+  --color-bg-primary: #002b36;
+  --color-bg-secondary: #073642;
+  --color-bg-tertiary: #586e75;
+  --color-text-primary: #fdf6e3;
+  --color-text-secondary: #839496;
+  --color-text-muted: #657b83;
+  --color-accent-primary: #fdf6e3;
+  --color-accent-solid: #cb4b16;
+  --color-accent-solid-hover: #dc322f;
+  --color-border-primary: #073642;
+  --color-error: #dc322f;
+  --color-disabled-bg: #586e75;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* -- THEME: "Tiramisu" (Light Theme) -- */
+[data-theme="tiramisu"] {
+  --color-bg-primary: #cfc8bc;
+  --color-bg-secondary: #fdfbf7;
+  --color-bg-tertiary: #edebe8;
+  --color-text-primary: #451f10;
+  --color-text-secondary: #6e6461;
+  --color-text-muted: #8a6c64;
+  --color-accent-primary: #7a4f3f;
+  --color-accent-solid: #d19a66;
+  --color-accent-solid-hover: #c18b56;
+  --color-border-primary: #edebe8;
+  --color-error: #d72a2a;
+  --color-disabled-bg: #edebe8;
+  --color-shadow: var(--color-accent-primary);
+}
+
+/* --- You can add more themes here! Just copy the block above and change the selector. --- */
+
+
+/* --- Legacy variables for Next.js templates (these don't need to change) --- */
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+@theme inline {
+  --color-background: var(--color-bg-primary);
+  --color-foreground: var(--color-text-secondary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* --- CUSTOM MINIMAL SCROLLBAR --- */
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-primary);
+  border-radius: 10px;
+  border: 2px solid var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-muted);
+}
+
+/* For Firefox */
+/* Note: Firefox scrollbar styling is less customizable than Webkit */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-muted) var(--color-bg-primary);
+}
+
+/* --- TARGETED SCROLLBAR FOR THE EDITOR PANEL --- */
+/* For Webkit browsers */
+.editor-panel::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary); /* Match the panel background */
+}
+
+/* For Firefox */
+/* This overrides the global scrollbar-color for just this element */
+.editor-panel {
+  scrollbar-color: var(--color-text-muted) var(--color-bg-secondary);
+}
