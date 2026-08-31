@@ -9,11 +9,10 @@ projects:
       - TypeScript
       - Tailwind CSS
       - Framer Motion
-      - Vercel
     description:
-      - A fully responsive personal portfolio built from scratch to showcase my skills and professional history.
-      - Features a dynamic, WYSIWYG editor for content management and a themeable UI with 20+ predefined themes.
-      - Deployed on Vercel with integrated analytics for privacy-friendly traffic insights.
+      - The tool that built this page. A local editor with a live preview, so a portfolio is filled in through a form rather than a config file.
+      - Twenty themes, drag-and-drop section layout, an image cropper and a date-range picker.
+      - Exports a standalone Next.js project with the editor stripped out, so the result is yours to deploy anywhere.
 
   - name: GraphQL API for a Task Management App
     github: 'https://github.com/yourusername/your-repo'

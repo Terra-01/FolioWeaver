@@ -6,12 +6,32 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+// The complete set of content files. `file` is a query parameter and was
+// previously interpolated straight into path.join, so `?file=../../../secrets`
+// read any .md the process could reach. This route is one of the few that ships
+// inside every exported portfolio, so that traversal travelled to every user
+// who deployed one. An allowlist is the right shape here because the set is
+// closed and known — there is no legitimate caller asking for anything else.
+const CONTENT_FILES = [
+  'about',
+  'education',
+  'experience',
+  'header',
+  'projects',
+  'settings',
+  'skills',
+] as const;
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const fileName = searchParams.get('file');
 
   if (!fileName) {
     return NextResponse.json({ error: 'File name is required' }, { status: 400 });
+  }
+
+  if (!(CONTENT_FILES as readonly string[]).includes(fileName)) {
+    return NextResponse.json({ error: 'Unknown content file' }, { status: 400 });
   }
 
   try {
